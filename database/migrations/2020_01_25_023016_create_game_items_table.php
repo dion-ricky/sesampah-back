@@ -17,7 +17,7 @@ class CreateGameItemsTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->integer('price');
-            $table->bigInteger('asset_id')->references('id')->on('assets');
+            $table->integer('asset_id')->references('id')->on('assets');
         });
     }
 
