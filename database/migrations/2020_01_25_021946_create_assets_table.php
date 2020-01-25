@@ -15,7 +15,7 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('url', 250);
         });
     }
 
