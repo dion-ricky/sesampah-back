@@ -13,7 +13,7 @@ class CreateKelurahansTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelurahans', function (Blueprint $table) {
+        Schema::create('kelurahan', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->smallInteger('kecamatan_id')->references('id')->on('kecamatan')->nullable();
             $table->string('kelurahan', 50);
@@ -28,6 +28,6 @@ class CreateKelurahansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelurahans');
+        Schema::dropIfExists('kelurahan');
     }
 }

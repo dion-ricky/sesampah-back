@@ -13,7 +13,7 @@ class CreateKecamatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('kecamatans', function (Blueprint $table) {
+        Schema::create('kecamatan', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->smallInteger('kota_id')->references('id')->on('kota')->nullable();
             $table->string('kecamatan', 50);
@@ -27,6 +27,6 @@ class CreateKecamatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kecamatans');
+        Schema::dropIfExists('kecamatan');
     }
 }

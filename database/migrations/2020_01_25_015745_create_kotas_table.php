@@ -13,7 +13,7 @@ class CreateKotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kotas', function (Blueprint $table) {
+        Schema::create('kota', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->smallInteger('provinsi_id')->references('id')->on('provinsi')->nullable();
             $table->string('kota', 50);
@@ -27,6 +27,6 @@ class CreateKotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kotas');
+        Schema::dropIfExists('kota');
     }
 }

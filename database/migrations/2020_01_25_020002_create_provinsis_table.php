@@ -13,7 +13,7 @@ class CreateProvinsisTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinsis', function (Blueprint $table) {
+        Schema::create('provinsi', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('provinsi', 50);
         });
@@ -26,6 +26,6 @@ class CreateProvinsisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provinsis');
+        Schema::dropIfExists('provinsi');
     }
 }
