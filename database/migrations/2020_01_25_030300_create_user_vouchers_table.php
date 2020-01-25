@@ -19,6 +19,7 @@ class CreateUserVouchersTable extends Migration
             $table->boolean('is_valid');
             $table->date('received_date');
             $table->date('used_date');
+            $table->timestamps();
             $table->index(['user_id', 'voucher_id']);
         });
     }
