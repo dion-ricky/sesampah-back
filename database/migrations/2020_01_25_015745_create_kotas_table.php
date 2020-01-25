@@ -14,8 +14,9 @@ class CreateKotasTable extends Migration
     public function up()
     {
         Schema::create('kotas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->smallIncrements('id');
+            $table->smallInteger('provinsi_id')->references('id')->on('provinsi')->nullable();
+            $table->string('kota', 50);
         });
     }
 
