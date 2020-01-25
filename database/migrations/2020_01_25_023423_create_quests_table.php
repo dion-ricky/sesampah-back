@@ -14,8 +14,12 @@ class CreateQuestsTable extends Migration
     public function up()
     {
         Schema::create('quests', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('id');
+            $table->integer('cash_reward');
+            $table->integer('point_reward');
+            $table->integer('xp_reward');
+            $table->date('start_date');
+            $table->date('deadline');
         });
     }
 
