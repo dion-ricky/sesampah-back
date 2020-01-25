@@ -14,7 +14,7 @@ class CreateVouchersTable extends Migration
     public function up()
     {
         Schema::create('vouchers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->smallInteger('sponsor_id')->references('id')->on('sponsors');
             $table->integer('asset_id')->references('id')->on('assets')->nullable();
             $table->string('title', 25);
