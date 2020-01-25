@@ -13,8 +13,13 @@ class CreateTransaksisTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaksis', function (Blueprint $table) {
+        Schema::create('transaksi', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('bank_sampah_id')->references('id')->on('bank_sampah');
+            $table->bigInteger('user_id')->references('id')->on('users');
+            $table->boolean('is_incoming');
+            $table->boolean('is_money');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateTransaksisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksis');
+        Schema::dropIfExists('transaksi');
     }
 }
