@@ -22,9 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('alamat', 50)->nullable();
             $table->smallInteger('kelurahan_id')->references('id')->on('kelurahan')->nullable();
             $table->string('no_telp', 25)->nullable();
-            $table->smallInteger('level')->default(1);
-            $table->integer('xp')->default(0);
-            $table->unsignedTinyInteger('tier')->default(1);
             $table->integer('cash')->default(0);
             $table->integer('point')->default(0);
             $table->string('email')->unique();
