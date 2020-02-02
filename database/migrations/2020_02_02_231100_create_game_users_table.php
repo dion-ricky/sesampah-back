@@ -14,7 +14,7 @@ class CreateGameUsersTable extends Migration
     public function up()
     {
         Schema::create('game_users', function (Blueprint $table) {
-            $table->bigIteger('user_id')->references('users')->on('id');
+            $table->bigInteger('user_id')->references('users')->on('id');
             $table->smallInteger('level')->default(1);
             $table->integer('xp')->default(0);
             $table->unsignedTinyInteger('tier')->default(1);
