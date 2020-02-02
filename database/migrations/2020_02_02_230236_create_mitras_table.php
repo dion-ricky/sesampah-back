@@ -15,9 +15,8 @@ class CreateMitrasTable extends Migration
     {
         Schema::create('mitras', function (Blueprint $table) {
             $table->bigInteger('user_id')->references('users')->on('id');
-            $table->smallInteger('level')->default(1);
-            $table->integer('xp')->default(0);
-            $table->unsignedTinyInteger('tier')->default(1);
+            $table->double('lat', 8, 6);
+            $table->double('long', 8, 6);
             $table->timestamps();
             $table->index('user_id');
         });

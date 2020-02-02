@@ -9,8 +9,7 @@ class Mitra extends Model
     //
     protected $fillable = [
         'user_id',
-        'level',
-        'xp',
-        'tier',
+        'lat',
+        'long',
     ];
 }
