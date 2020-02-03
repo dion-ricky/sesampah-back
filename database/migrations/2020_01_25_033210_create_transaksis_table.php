@@ -15,12 +15,14 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('bank_sampah_id')->references('id')->on('bank_sampah');
-            $table->bigInteger('user_id')->references('id')->on('users');
+            $table->bigInteger('bank_sampah_id');
+            $table->bigInteger('user_id');
             $table->boolean('is_incoming');
             $table->boolean('is_money');
             $table->integer('amount');
             $table->timestamps();
+            $table->foreign('bank_sampah_id')->references('id')->on('bank_sampah');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

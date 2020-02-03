@@ -14,13 +14,15 @@ class CreateUserVouchersTable extends Migration
     public function up()
     {
         Schema::create('user_vouchers', function (Blueprint $table) {
-            $table->bigInteger('user_id')->references('id')->on('users');
-            $table->integer('voucher_id')->references('id')->on('vouchers');
+            $table->bigInteger('user_id');
+            $table->integer('voucher_id');
             $table->boolean('is_valid');
             $table->date('received_date');
             $table->date('used_date');
             $table->timestamps();
-            $table->index(['user_id', 'voucher_id']);
+            $table->primary(['user_id', 'voucher_id']);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
         });
     }
 

@@ -14,11 +14,13 @@ class CreateUserGameItemsTable extends Migration
     public function up()
     {
         Schema::create('user_game_items', function (Blueprint $table) {
-            $table->bigInteger('user_id')->references('id')->on('users');
-            $table->integer('game_item_id')->references('id')->on('game_items');
+            $table->bigInteger('user_id');
+            $table->integer('game_item_id');
             $table->date('received_date');
             $table->timestamps();
-            $table->index(['user_id', 'game_item_id']);
+            $table->primary(['user_id', 'game_item_id']);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('game_item_id')->references('id')->on('game_items');
         });
     }
 

@@ -18,8 +18,9 @@ class CreateBankSampahsTable extends Migration
             $table->string('name', 100);
             $table->string('no_telp', 25);
             $table->string('alamat', 50);
-            $table->smallInteger('kelurahan_id')->references('id')->on('kelurahan');
+            $table->smallInteger('kelurahan_id');
             $table->timestamps();
+            $table->foreign('kelurahan_id')->references('id')->on('kelurahan');
         });
     }
 

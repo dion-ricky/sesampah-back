@@ -14,11 +14,12 @@ class CreateMitrasTable extends Migration
     public function up()
     {
         Schema::create('mitras', function (Blueprint $table) {
-            $table->bigInteger('user_id')->references('users')->on('id');
+            $table->bigInteger('user_id');
             $table->double('lat', 8, 6);
             $table->double('long', 8, 6);
             $table->timestamps();
-            $table->index('user_id');
+            $table->primary('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
