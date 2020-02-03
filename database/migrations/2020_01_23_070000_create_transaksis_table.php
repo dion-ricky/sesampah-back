@@ -15,8 +15,8 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('bank_sampah_id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('bank_sampah_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->boolean('is_incoming');
             $table->boolean('is_money');
             $table->integer('amount');

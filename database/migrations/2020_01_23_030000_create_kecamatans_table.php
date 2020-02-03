@@ -15,8 +15,9 @@ class CreateKecamatansTable extends Migration
     {
         Schema::create('kecamatan', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->smallInteger('kota_id')->references('id')->on('kota')->nullable();
+            $table->smallInteger('kota_id')->unsigned()->nullable();
             $table->string('kecamatan', 50);
+            $table->foreign('kota_id')->references('id')->on('kota');
         });
     }
 

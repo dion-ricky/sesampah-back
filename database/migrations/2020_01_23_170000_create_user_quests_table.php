@@ -14,8 +14,8 @@ class CreateUserQuestsTable extends Migration
     public function up()
     {
         Schema::create('user_quests', function (Blueprint $table) {
-            $table->integer('quest_id');
-            $table->integer('user_id');
+            $table->integer('quest_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->boolean('status');
             $table->smallInteger('progress');
             $table->date('start_date');

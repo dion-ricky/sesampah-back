@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->date('tgl_lahir')->nullable();
             $table->string('tempat_lahir', 50)->nullable();
             $table->string('alamat', 50)->nullable();
-            $table->smallInteger('kelurahan_id')->references('id')->on('kelurahan')->nullable();
+            $table->smallInteger('kelurahan_id')->unsigned()->nullable();
             $table->string('no_telp', 25)->nullable();
             $table->integer('cash')->default(0);
             $table->integer('point')->default(0);
@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('kelurahan_id')->references('id')->on('kelurahan');
         });
     }
 

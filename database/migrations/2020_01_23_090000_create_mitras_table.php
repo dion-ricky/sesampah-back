@@ -14,7 +14,7 @@ class CreateMitrasTable extends Migration
     public function up()
     {
         Schema::create('mitras', function (Blueprint $table) {
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->double('lat', 8, 6);
             $table->double('long', 8, 6);
             $table->timestamps();

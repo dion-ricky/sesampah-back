@@ -15,9 +15,10 @@ class CreateKelurahansTable extends Migration
     {
         Schema::create('kelurahan', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->smallInteger('kecamatan_id')->references('id')->on('kecamatan')->nullable();
+            $table->smallInteger('kecamatan_id')->unsigned()->nullable();
             $table->string('kelurahan', 50);
             $table->string('kode_pos', 10);
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatan');
         });
     }
 

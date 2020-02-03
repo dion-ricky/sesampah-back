@@ -15,8 +15,8 @@ class CreateVouchersTable extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('sponsor_id');
-            $table->integer('asset_id')->nullable();
+            $table->smallInteger('sponsor_id')->unsigned();
+            $table->integer('asset_id')->unsigned()->nullable();
             $table->string('title', 25);
             $table->string('description', 250);
             $table->date('available_from');

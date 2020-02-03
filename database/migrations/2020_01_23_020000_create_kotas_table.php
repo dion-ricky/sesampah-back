@@ -15,7 +15,8 @@ class CreateKotasTable extends Migration
     {
         Schema::create('kota', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->smallInteger('provinsi_id')->references('id')->on('provinsi')->nullable();
+            $table->smallInteger('provinsi_id')->unsigned()->nullable();
+            $table->foreign('provinsi_id')->references('id')->on('provinsi');
             $table->string('kota', 50);
         });
     }
