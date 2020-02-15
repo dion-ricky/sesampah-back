@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Firebase\Guard as FirebaseGuard;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        $this->app['auth']->viaRequest('firebase', function ($request) {
+            return app(FirebaseGuard::class)->user($request);
+        });
     }
 }
