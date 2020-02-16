@@ -39,7 +39,8 @@
                 var token = result.credential.accessToken;
             }
             var user = result.user;
-            console.log(user);
+            var token = user.getIdToken();
+            console.log(token);
             // createUser(user);
         }).catch(function(error) {
             var errorCode = error.code;
@@ -50,10 +51,10 @@
         });
     }
 
-    function createUser(user) {
+    function createUser(user, jwt) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "http://sesampah.local/api/me", true);
-        xhr.setRequestHeader('Authorization', 'Bearer' + user.getIdToken());
+        xhr.setRequestHeader('Authorization', 'Bearer ' + jwt);
         xhr.addEventListener('error', handleRequestError);
         xhr.send();
     }
@@ -73,6 +74,28 @@
             // An error happened.
         });
     }
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            var token = user.getIdToken(true);
+            // console.log(token);
+            // ...
+            firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                // Send token to your backend via HTTPS
+                // ...
+                createUser(user, idToken);
+                }).catch(function(error) {
+                // Handle error
+            });
+        } else {
+            // User is signed out.
+            // ...
+        }
+    });
+
+    
+
     </script>
 </head>
 
