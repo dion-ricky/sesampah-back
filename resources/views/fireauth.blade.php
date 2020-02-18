@@ -55,6 +55,7 @@
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "http://sesampah.local/api/me", true);
         xhr.setRequestHeader('Authorization', 'Bearer ' + jwt);
+        xhr.setRequestHeader('Accept', 'application/json')
         xhr.addEventListener('error', handleRequestError);
         xhr.send();
     }

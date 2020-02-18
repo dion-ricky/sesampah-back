@@ -43,8 +43,8 @@ return [
 
         'api' => [
             'driver' => 'firebase',
-            'provider' => 'users',
-            'hash' => false,
+            // 'provider' => 'users',
+            // 'hash' => false,
         ],
     ],
 

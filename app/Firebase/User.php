@@ -28,7 +28,7 @@ class User implements Authenticatable
         throw new \Exception('No remember token for Firebase User');
     }
 
-    public function setRememberToken() {
+    public function setRememberToken($value) {
         throw new \Exception('No remember token for Firebase User');
     }
 

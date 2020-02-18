@@ -2,13 +2,14 @@
 
 namespace App\Firebase;
 
-use Firebase\Auth\Token\Verifier;
+use Kreait\Firebase\JWT\IdTokenVerifier;
+use Kreait\Firebase\JWT\Error\IdTokenVerificationFailed;
 
 class Guard
 {
     protected $verifier;
 
-    public function __construct(Verifier $verifier) {
+    public function __construct(IdTokenVerifier $verifier) {
         $this->verifier = $verifier;
     }
 
@@ -17,10 +18,10 @@ class Guard
 
         try {
             $token = $this->verifier->verifyIdToken($token);
-            return new User($token->getClaims());
+            return new User($token->payload());
         }
-        catch (\Exception $e) {
-            return;
+        catch (IdTokenVerificationFailed $e) {
+            throw $e;
         }
     }
 }
