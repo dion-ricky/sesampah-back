@@ -14,13 +14,13 @@ class CreateGameUsersTable extends Migration
     public function up()
     {
         Schema::create('game_users', function (Blueprint $table) {
-            $table->bigInteger('user_id')->unsigned();
+            $table->string('user_uid', 40);
             $table->smallInteger('level')->default(1);
             $table->integer('xp')->default(0);
             $table->unsignedTinyInteger('tier')->default(1);
             $table->timestamps();
-            $table->primary('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->primary('user_uid');
+            $table->foreign('user_uid')->references('user_uid')->on('users');
         });
     }
 

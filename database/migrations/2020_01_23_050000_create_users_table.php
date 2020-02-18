@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
             $table->string('user_uid', 40);
             $table->string('username', 25);
             $table->string('name', 250);
@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->primary('user_uid');
             $table->foreign('kelurahan_id')->references('id')->on('kelurahan');
         });
     }
